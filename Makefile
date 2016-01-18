@@ -6,7 +6,7 @@
 #    By: fhuang <fhuang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/11 11:38:13 by fhuang            #+#    #+#              #
-#    Updated: 2016/01/13 14:42:13 by fhuang           ###   ########.fr        #
+#    Updated: 2016/01/18 12:17:51 by fhuang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ all: $(SRC) $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(LIBFT_PATH) -o $(NAME)
+	@$(MAKE) -C libft
 
 $(OBJ_PATH)%.o : %.c
 	@echo "\033[1;32m" "Compiling $< into $@" "\033[0m"
@@ -48,6 +49,7 @@ $(OBJ_PATH)%.o : %.c
 
 clean:
 	rm -rf $(OBJ_PATH)
+	@$(MAKE) clean -C libft
 
 fclean: clean
 	rm -f $(NAME)
